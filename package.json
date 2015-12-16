@@ -19,7 +19,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "inquirer2": "github:jonschlinkert/inquirer2"
+  },
   "devDependencies": {
     "mocha": "*",
     "should": "*"
