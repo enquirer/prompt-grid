@@ -340,15 +340,15 @@ function gridRender(choices, pointer, cols) {
   var arr = new Array(cols).join(' ').split(' ');
   var output = '';
   // output += '(' + pos.r + ', ' + pos.c + ') [' + pointer + ']\n';
-  output += '+';
+  output += '┌';
   output += arr.map(function() {
     return '──────────';
   }).join('┬');
-  output += '+\n';
+  output += '┐\n';
 
   var rowSep = '├' + arr.map(function() {
     return '──────────';
-  }).join('+') + '+\n';
+  }).join('┼') + '┤\n';
 
   var len = choices.length;
 
@@ -360,18 +360,18 @@ function gridRender(choices, pointer, cols) {
       cell = utils.chalk.cyan(cell);
     }
     if (c === 0) {
-      cell = '|' + cell;
+      cell = '│' + cell;
     }
-    cell += '|';
+    cell += '│';
     if (c === (cols - 1) && i !== len - 1) {
       cell += '\n' + rowSep;
     }
     output += cell;
   });
 
-  output += '\n⌞' + arr.map(function() {
+  output += '\n└' + arr.map(function() {
     return '──────────';
-  }).join('+') + '⌟';
+  }).join('┴') + '┘';
 
   return output.replace(/\n$/, '');
 }
