@@ -38,7 +38,9 @@ prompt.run()
   });
 ```
 
-## Usage with [enquirer](https://github.com/enquirer/enquirer)
+## Enquirer usage
+
+Register the prompt as a plugin with [enquirer](https://github.com/enquirer/enquirer):
 
 ```js
 var Enquirer = require('enquirer');
