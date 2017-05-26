@@ -218,7 +218,9 @@ GridPrompt.prototype.renderGrid = function() {
   var num = 10;
   var cols = this.cols;
   var pos = this.position;
-  var line = repeat('─', num);
+  var len = this.choices.length;
+  var max = Math.floor(Math.max(longest(this.choices.keys).length + 2, 10));
+  var line = repeat('─', max + 2);
   var toLine = function() {
     return line;
   };
@@ -229,11 +231,10 @@ GridPrompt.prototype.renderGrid = function() {
   output += '┐\n';
 
   var rowSep = '├' + arr.map(toLine).join('┼') + '┤\n';
-  var len = this.choices.length;
-  var max = Math.floor(Math.max(longest(this.choices.keys).length, 10));
 
   this.choices.forEach(function(choice, i) {
     var c = (i % cols);
+    var realLength;
 
     var cell = ' ';
     if (choice.type === 'separator') {
@@ -243,19 +244,29 @@ GridPrompt.prototype.renderGrid = function() {
       // on an unstyled string, then replace it with choice.name,
       // which might be styled
       var line = center(choice.key, max);
+      realLength = line.length;
       line = line.replace(choice.key, choice.name);
       cell += line;
     }
 
-    if (i === pos && choice.key === choice.name) {
+    var spaces = '';
+    while (max > realLength) {
+      spaces += ' ';
+      realLength++;
+    }
+
+    cell += spaces;
+
+    var isSelected = i === pos && choice.key === choice.name;
+    if (isSelected) {
       var color = isMoving(key) ? colors.yellow : colors.cyan;
-      cell = color('-' + cell.slice(1, -1) + '-');
+      cell = color('-' + cell.slice(1, -1) + ' -');
     }
     if (c === 0) {
       cell = '│' + cell;
     }
 
-    cell += '│';
+    cell += !isSelected ? ' │' : '|';
     if (c === (cols - 1) && i !== len - 1) {
       cell += '\n' + rowSep;
     }
