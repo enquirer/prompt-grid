@@ -1,7 +1,7 @@
 {
   "name": "prompt-grid",
   "description": "Prompt that allows the user to re-arrange the cells in a grid in the terminal.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/enquirer/prompt-grid",
   "author": "Brian Woodward (https://github.com/doowb)",
   "contributors": [
