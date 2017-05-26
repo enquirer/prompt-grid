@@ -27,7 +27,6 @@
     "ansi-colors": "^0.2.0",
     "arr-swap": "^1.0.1",
     "center-align": "^1.0.1",
-    "is-number": "^3.0.0",
     "longest": "^2.0.1",
     "prompt-base": "^2.1.1",
     "repeat-string": "^1.6.1",

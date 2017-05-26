@@ -8,14 +8,13 @@
 'use strict';
 
 var util = require('util');
-var swap = require('arr-swap');
+var Prompt = require('prompt-base');
 var strip = require('strip-color');
 var colors = require('ansi-colors');
 var repeat = require('repeat-string');
 var center = require('center-align');
 var longest = require('longest');
-var isNumber = require('is-number');
-var Prompt = require('prompt-base');
+var swap = require('arr-swap');
 
 /**
  * Create a new prompt.
@@ -93,7 +92,7 @@ GridPrompt.prototype.overrideActions = function() {
 
   this.action('toIndex', function(grid) {
     var pos = (this.prompt.cols * grid.r) + grid.c;
-    if (pos < 0) return pos = 0;
+    if (pos < 0) return 0;
     if (pos > this.choices.length - 1) {
       pos = this.choices.length - 1;
     }
@@ -204,7 +203,7 @@ GridPrompt.prototype.renderAnswer = function() {
       choice.name = colors.green(strip(choice.name));
     }
   }
-  return '\n' + this.renderGrid()
+  return '\n' + this.renderGrid();
 };
 
 /**
@@ -215,7 +214,6 @@ GridPrompt.prototype.renderAnswer = function() {
 
 GridPrompt.prototype.renderGrid = function() {
   var key = this.keypress;
-  var num = 10;
   var cols = this.cols;
   var pos = this.position;
   var len = this.choices.length;
