@@ -1,12 +1,16 @@
 {
-  "name": "grid-prompt",
-  "description": "Editable grid prompt.",
+  "name": "prompt-grid",
+  "description": "Prompt that allows the user to re-arrange the cells in a grid in the terminal.",
   "version": "0.1.0",
-  "homepage": "https://github.com/doowb/grid-prompt",
+  "homepage": "https://github.com/enquirer/prompt-grid",
   "author": "Brian Woodward (https://github.com/doowb)",
-  "repository": "doowb/grid-prompt",
+  "contributors": [
+    "Brian Woodward (https://twitter.com/doowb)",
+    "Jon Schlinkert (http://twitter.com/jonschlinkert)"
+  ],
+  "repository": "enquirer/prompt-grid",
   "bugs": {
-    "url": "https://github.com/doowb/grid-prompt/issues"
+    "url": "https://github.com/enquirer/prompt-grid/issues"
   },
   "license": "MIT",
   "files": [
@@ -20,11 +24,42 @@
     "test": "mocha"
   },
   "dependencies": {
-    "inquirer2": "github:jonschlinkert/inquirer2"
+    "ansi-colors": "^0.2.0",
+    "arr-swap": "^1.0.1",
+    "center-align": "^1.0.1",
+    "is-number": "^3.0.0",
+    "longest": "^2.0.1",
+    "prompt-base": "^2.1.1",
+    "repeat-string": "^1.6.1",
+    "strip-color": "^0.1.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "braces": "^2.1.1",
+    "gulp-format-md": "^0.1.12"
   },
-  "keywords": []
+  "keywords": [
+    "grid",
+    "prompt"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "common-minimal",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "prompt-base",
+        "prompt-checkbox",
+        "prompt-password",
+        "prompt-sort"
+      ]
+    },
+    "lint": {
+      "reflinks": true
+    }
+  }
 }
